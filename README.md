@@ -140,3 +140,34 @@ print("yourMiddleSchoolName: \(yourMiddleSchoolName.getName())")
 * 값만 출력하기 위해서는 getName() 함수를 이용한다.
     * 각 case에 속하는 값이 들어올 경우 return 내용을 작성
     * 출력2 => yourMiddleSchoolName: iOS 중학교
+##
+## for 반복문
+``` swift
+// 0부터 5까지
+for i in 0 ... 5 {
+    print(i)
+}
+// 0 1 2 3 4 5
+
+// 0부터 4까지
+for i in 0 ..< 5 {
+    print(i)
+}
+// 0 1 2 3 4
+```
+* swift에서는 범위를 . 으로 설정한다.
+    * 1 ... 10 => 1이상 10이하 => 10번
+    * 1 ..< 10 => 1이상 10미만 => 9번
+
+### 요소(i)가 필요없는 반복문
+``` swift
+var randomInts: [Int] = [Int]()
+
+for _ in 0 ..< 6 {
+    let randomNumber = Int.random(in: 1 ... 45)
+    randomInts.append(randomNumber)
+}
+
+print(randomInts)
+```
+* 요소가 필요없이 순서만 필요한 경우(로또 번호뽑기 등) i 등의 요소 대신 _ 를 이용한다.
