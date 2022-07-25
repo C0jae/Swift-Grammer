@@ -1,11 +1,11 @@
 import UIKit
 import Foundation
 
-//enum School {
-//    case elementary
-//    case middle
-//    case high
-//}
+enum School {
+    case elementary
+    case middle
+    case high
+}
 
 // , 로 case 생략가능
 enum School {
