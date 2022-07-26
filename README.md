@@ -171,3 +171,40 @@ for _ in 0 ..< 6 {
 print(randomInts)
 ```
 * 요소가 필요없이 순서만 필요한 경우(로또 번호뽑기 등) i 등의 요소 대신 _ 를 이용한다.
+
+##
+## 옵셔널,언래핑
+### 옵셔널
+``` swift
+var someVariable: Int? = nil
+// var someVariable: Int = nil 는 불가
+
+if someVariable == nil {
+    someVariable = 90
+}
+```
+* 옵셔널이란? : 값이 있는지 없는지 모르는 상태
+* 옵셔널에 값을 주고 출력하게 되면 해당 값은 옵셔널이란 표현으로 출력된다.
+    * print(someVariable) => Optional(90)
+
+### 언래핑
+언래핑 : 감싸져있는(옵셔널)것을 벗기는 것
+``` swift
+if otherVariable == someVariable {
+    print("언래핑 되었다. otherVariable: \(otherVariable)")
+} else {
+    print("값이 없다.")
+}
+```
+* if let 이용
+    * if let a == b { A } else { B } => 옵셔널 b가 nil이 아니라면 b의 값을 a에 적용시키고 A를 실행 / b가 nil이라면 B를 실행
+    * 출력 => 언래핑 되었다. otherVariable: 90 => 옵셔널이 벗겨진 후 값만 적용
+
+``` swift
+guard let theOtherVariable == someVariable else { return }
+print("언래핑 되었다. theOtherVariable: \(theOtherVariable)")
+```
+* guard let 이용
+    * guard let a == b else { return } A => 옵셔널 b가 nil이 아니라면 A를 실행 / b가 nil 이라면 return
+
+
