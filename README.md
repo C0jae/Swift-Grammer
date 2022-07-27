@@ -207,4 +207,60 @@ print("언래핑 되었다. theOtherVariable: \(theOtherVariable)")
 * guard let 이용
     * guard let a == b else { return } A => 옵셔널 b가 nil이 아니라면 A를 실행 / b가 nil 이라면 return
 
+##
+## Struct vs Class
+Struct(복사본) <-> Class(연동)
+### Struct
+``` swift
+struct YoutuberStruct {
+    var name: String
+    var subscriberCount: Int
+}
+
+var youtuber1 = YoutuberStruct(name: "유튜버1", subscriberCount: 9999)
+
+var youtuber1Clone = youtuber1
+youtuber1Clone.name = "유튜버1 복제"
+
+print(youtuber1Clone.name)  // 유튜버1 복제
+print(youtuber1.name)       // 유튜버1
+```
+* Struct의 값을 받은 변수의 값을 변경한다 하더라도 기존 변수의 값은 변하지 않는다.
+    * 원본은 따로 존재하며 복사본을 수정한 상황과 비슷
+
+### Class
+``` swift
+class YoutuberClass {
+    var name: String
+    var subscriberCount: Int
+    
+    // 생성자 - 메모리에 올린다
+    // init으로 매개변수를 가진 생성자 메소드를 만들어야 매개변수를 넣고 객체 생성가능
+    init(name: String, subscriberCount: Int) {
+        self.name = name
+        self.subscriberCount = subscriberCount
+    }
+}
+
+var youtuber2 = YoutuberClass(name: "유튜버2", subscriberCount: 9999)
+
+var youtuber2Clone = youtuber2
+youtuber2Clone.name = "유튜버2 복제"
+
+print(youtuber2Clone.name)  // 유튜버2 복제
+print(youtuber2.name)       // 유튜버2 복제
+```
+* Class는 init이라는 생성자가 필요
+* Class의 값을 받은 변수의 값을 변경하면 기존 변수의 값도 같이 변경된다.
+    * 하나의 원본을 연동하여 수정하는 상황과 비슷
+
+
+
+
+
+
+
+
+
+
 
